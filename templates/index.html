@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Dojo Survey</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='CSS/styles.css') }}">
+    <!-- <script type="text/javascript" src="{{ url_for('static', filename='javascript/script.js') }}"></script>
+    <img src="{{ url_for('static', filename='images/images.jpg') }}"> -->
+  </head>
+  <body>
+    {% with messages = get_flashed_messages() %}
+      {% if messages %}
+        {% for message in messages %}
+          <p>{{message}}</p>
+        {% endfor %}
+      {% endif %}
+    {% endwith %}
+    <form action='/result' method='POST'>
+      Your Name          : <input type='text' name='your_name'><br><br>
+      Dojo Location      :
+      <select name="location">
+        <option value="san jose">San Jose</option>
+        <option value="seattle">Seattle</option>
+        <option value="washington">Washington</option>
+        <option value="delmas"> Los Angeles</option>
+      </select><br><br>
+      Favorite Language  :
+
+      <select name="language">
+        <option value="python">Python</option>
+        <option value="mean">Mean</option>
+        <option value="ruby">Ruby</option>
+        <option value="ios">IOS</option>
+      </select><br>
+
+      <p name="comment">Comment (optional)</p>
+
+      <textarea name="text" rows="8" cols="80"></textarea>
+      <br>
+      <input type="submit" value="your button">
+    </form>
+  </body>
+</html>
